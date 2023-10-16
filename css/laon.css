@@ -308,63 +308,135 @@ body{
 /* Start About */
 .about{
     padding-top:var(--section-padding);
-    padding-bottom:var(--section-padding);
+    padding-bottom:calc(var(--section-padding) + 60px);
 }
-.about .about-content{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    gap: 20px;
+.about-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-top: var(--section-margin);
 }
-.about .about-content .img{
+@media (max-width: 991px){
+    .about .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+.about .about-content .image{
     position: relative;
-    text-align: center;
+    width:191px;
+    height: 264px;
 }
-.about .about-content .img img{
-    max-width: 50%;
-    height: 300px;
+.about .about-content .image img{
+    max-width: 100%;
 }
-.about .about-content .img::before{
+@media (max-width: 991px){
+    .about .about-content .image{
+        margin: 0 auto 50px;
+    }
+}
+.about .about-content .image::before{
     content: "";
     position: absolute;
-    background-color: #8f8f8f;
-    width: 100px;
+    background-color: var(--main-back-color);
+    width: 60px;
     height: calc(100% + 70px);
-    left: 23.5%;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: -1;
-}
-.about .about-content .img::after{
-    content: "";
-    position: absolute;
-    background-color: rgb(143, 143, 143);
-    width: 81px;
-    height: calc(100% + -31px);
-    right: 16.5%;
-    top: 38%;
-    transform: translateY(-50%);
+    top: -35px;
     z-index: -1
 }
+.about .about-content .image::after{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 80% ;
+    top: -35px;
+    left:calc( 100% - 35px);
+    z-index: -1;
+    border-bottom: 60px solid var(--main-color);
+    border-left: 60px solid var(--main-color);
+
+}
+@media (max-width: 991px){
+    .about .about-content .image::after , .image::before{
+        display: none;
+    }
+}
 .about .about-content .text{
-    padding: 20px;
-}
-.about .about-content .text .bold-p{
-    font-size: 20px;
-    font-weight: 800;
-    line-height: 1.8;
-    margin-bottom: 40px;
-}
-.about .about-content .text .divider{
-    background-color: var(--main-color);
-    width: 50%;
-    margin-left: 0;
-}
-.about .about-content .text .divider + p{
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.8;
-    margin-bottom: 0;
+    flex-basis: calc(100% - 350px);
 }
 
+.about .about-content .text p:first-of-type{
+    font-weight: bold;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+.about .about-content .text hr{
+    border-color: var(--main-color);
+    width: 50%;
+    display: inline-block;
+}
+.about .about-content .text p:last-of-type{
+    line-height: 1.8;
+}
 /* End About */
+/* Start Contact */
+.contact{
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--main-back-color);
+
+}
+.contact .info{
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.contact .info>p{
+    font-weight: 800;
+    font-size: 35px;
+    color: var(--secondary-color);
+}
+.contact .info>a{
+    font-weight: 800;
+    font-size: 30px;
+    color: var(--main-color);
+    text-decoration: none;
+    padding: 20px;
+}
+.contact .info .links{
+    display: flex;
+    padding: 20px 40px;
+    font-size: 18px;
+    color: var(--main-text-color);
+}
+@media (max-width:767px) {
+    .contact .info{
+        text-align: center;
+    }
+    .contact .info>p{
+        font-size: 25px;
+    }
+    .contact .info>a{
+        font-size: 20px;
+    }
+    .contact .info .links{
+        justify-content: center;
+        font-size: 10px;
+    }
+}
+.contact .info .links i{
+    margin-left: 10px;
+    color: var(--secondary-color);
+}
+/* End Contact */
+/* Start footer */
+.footer{
+    background-color: var(--secondary-color);
+    text-align: center;
+    padding: 20px;
+    font-weight: 800;
+    color: var(--main-back-color);
+}
+.footer span{
+    color: var(--main-color);
+}
+/* End footer */
