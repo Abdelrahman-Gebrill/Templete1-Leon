@@ -1,0 +1,27 @@
+/* this class make a grid 3 column */
+.grid-3{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+}
+/* container call fit make every elements 
+at the website in the center and fit the content */
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left:auto;
+    margin-right:auto;
+    /* can I use it instead of media query */
+    /* width: 90vw; */
+}
+/* small screen 768px to 991px */
+@media (min-width:768px) {
+    .container{
+        width: 100vw;
+    }
+}
+/* medium screen 992px to 1199px */
+@media (min-width:992px) {
+    .container{
+        width: 970px;
+    }
+}
